@@ -44,8 +44,13 @@ public class Main {
      * @param arrayList the ArrayList to be sorted. arrayList cannot contain duplicates
      */
     public static void mergeSort(ArrayList<Integer> arrayList) {
-        throw new UnsupportedOperationException("mergeSort() has not been implemented yet");
+        int mid = arrayList.size()/2;
+        ArrayList<Integer>
+        //throw new UnsupportedOperationException("mergeSort() has not been implemented yet");
     }
+
+    create new arrays
+
 
     /**
      * This function is a helper function used to help you implement mergeSort.
