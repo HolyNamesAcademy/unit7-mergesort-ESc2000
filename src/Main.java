@@ -44,12 +44,19 @@ public class Main {
      * @param arrayList the ArrayList to be sorted. arrayList cannot contain duplicates
      */
     public static void mergeSort(ArrayList<Integer> arrayList) {
+        if (arrayList.size() == 1) {
+
+        }
         int mid = arrayList.size()/2;
         ArrayList<Integer>
         //throw new UnsupportedOperationException("mergeSort() has not been implemented yet");
     }
 
-    create new arrays
+    //create new arrays???
+    //2 parts, split n sort
+    //sort (array)
+        //merge (sort (x), sort (y))
+    //sort input 1, spit it out
 
 
     /**
@@ -76,6 +83,20 @@ public class Main {
      * @param hi the index of the last element in the second range + 1.
      */
     public static void merge(ArrayList<Integer> arrayList, int lo, int mid, int hi) {
-        throw new UnsupportedOperationException("merge() has not been implemented yet");
+        ArrayList<Integer> hold = new ArrayList<Integer>();
+        for (int i = lo; i < mid; i++)
+        {
+            //int min = arrayList.get(lo);
+            if (arrayList.get(i)>arrayList.get(i+mid))
+            {
+                hold.add(arrayList.get(i+mid));
+                i--;
+            }
+            else
+            {
+                hold.add(arrayList.get(i));
+            }
+        }
+        //throw new UnsupportedOperationException("merge() has not been implemented yet");
     }
 }
