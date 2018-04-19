@@ -44,11 +44,7 @@ public class Main {
      * @param arrayList the ArrayList to be sorted. arrayList cannot contain duplicates
      */
     public static void mergeSort(ArrayList<Integer> arrayList) {
-        if (arrayList.size() == 1) {
-
-        }
-        int mid = arrayList.size()/2;
-        ArrayList<Integer>
+        sort(arrayList, 0, arrayList.size());
         //throw new UnsupportedOperationException("mergeSort() has not been implemented yet");
     }
 
@@ -69,7 +65,14 @@ public class Main {
      * @param hi the index of the last element in the range + 1.
      */
     public static void sort(ArrayList<Integer> arrayList, int lo, int hi) {
-        throw new UnsupportedOperationException("sort() has not been implemented yet");
+        if (lo+1 == hi)
+        {
+            return;
+        }
+        int mid = (hi+1)/2;
+        sort(arrayList, lo, mid);
+        sort(arrayList, mid, hi);
+        merge(arrayList, lo, mid, hi);
     }
 
     /**
@@ -84,19 +87,25 @@ public class Main {
      */
     public static void merge(ArrayList<Integer> arrayList, int lo, int mid, int hi) {
         ArrayList<Integer> hold = new ArrayList<Integer>();
-        for (int i = lo; i < mid; i++)
+        int x = lo;
+        int y = mid;
+        int z = hi;
+        while (x < y && y < z)
         {
-            //int min = arrayList.get(lo);
-            if (arrayList.get(i)>arrayList.get(i+mid))
+            if (arrayList.get(x)>= arrayList.get(y))
             {
-                hold.add(arrayList.get(i+mid));
-                i--;
+                hold.add(arrayList.get(y));
+                y++;
             }
             else
             {
-                hold.add(arrayList.get(i));
+                hold.add(arrayList.get(x));
+                x++;
             }
         }
-        //throw new UnsupportedOperationException("merge() has not been implemented yet");
+        for (int i = lo; i < hi; i++)
+        {
+            arrayList.set(i, hold.get(i-lo));
+        }
     }
 }
