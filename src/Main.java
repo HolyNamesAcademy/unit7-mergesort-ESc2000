@@ -65,11 +65,11 @@ public class Main {
      * @param hi the index of the last element in the range + 1.
      */
     public static void sort(ArrayList<Integer> arrayList, int lo, int hi) {
-        if (lo+1 == hi)
+        if (lo+1 >= hi)
         {
             return;
         }
-        int mid = (hi+1)/2;
+        int mid = (hi-lo+1)/2 + lo;
         sort(arrayList, lo, mid);
         sort(arrayList, mid, hi);
         merge(arrayList, lo, mid, hi);
