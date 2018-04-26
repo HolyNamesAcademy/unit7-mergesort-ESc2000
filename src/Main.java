@@ -48,12 +48,6 @@ public class Main {
         //throw new UnsupportedOperationException("mergeSort() has not been implemented yet");
     }
 
-    //create new arrays???
-    //2 parts, split n sort
-    //sort (array)
-        //merge (sort (x), sort (y))
-    //sort input 1, spit it out
-
 
     /**
      * This function is a helper function used to help you implement mergeSort.
@@ -69,11 +63,13 @@ public class Main {
         {
             return;
         }
-        int mid = (hi-lo+1)/2 + lo;
+        int mid = lo + (hi-lo+1)/2;
         sort(arrayList, lo, mid);
         sort(arrayList, mid, hi);
         merge(arrayList, lo, mid, hi);
     }
+
+    //>=, +1
 
     /**
      * This function is a helper function used to help you implement mergeSort.
@@ -90,7 +86,7 @@ public class Main {
         int x = lo;
         int y = mid;
         int z = hi;
-        while (x < y && y < z)
+        while (x <= y && y <= z)
         {
             if (arrayList.get(x)>= arrayList.get(y))
             {
@@ -102,8 +98,24 @@ public class Main {
                 hold.add(arrayList.get(x));
                 x++;
             }
+            if (x==y && y != z)
+            {
+                for (int i = y; i < z; i++)
+                {
+                    hold.add(arrayList.get(i));
+                }
+                y=z;
+            }
+            if (y==z && x != y)
+            {
+                for (int i = x; i < y; i++)
+                {
+                    hold.add(arrayList.get(i));
+                }
+                x=y;
+            }
         }
-        for (int i = lo; i < hi; i++)
+        for (int i = lo; i <= hi; i++)
         {
             arrayList.set(i, hold.get(i-lo));
         }
